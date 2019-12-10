@@ -20,8 +20,7 @@ import { AuthContext } from "context/auth.js";
 import PrivateRoute from "views/examples/PrivateRoute";
 
 // others
-
-export const App = (props) => {
+const App = (props) => {
     const [authTokens, setAuthTokens] = useState();
 
     const setTokens = (data) => {
@@ -35,7 +34,7 @@ export const App = (props) => {
             >
                 <Switch>
                     <Route
-                        path="/index"
+                        path="/Index"
                         render={(props) => <Index {...props} />}
                     />
 
@@ -70,3 +69,5 @@ export const App = (props) => {
         </div>
     );
 };
+
+export default App;
