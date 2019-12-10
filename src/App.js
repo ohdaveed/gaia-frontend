@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Route,
     Redirect,
@@ -24,6 +24,7 @@ import PhotoUpload from "views/examples/PhotoUpload.js";
 import IndexNavbar from  "components/Navbars/IndexNavbar.js"
 // others
 const App = (props) => {
+    const [loggedUserId, setLoggedUserId] = useState(null)
 
     return (<>
                 <IndexNavbar />
@@ -41,11 +42,11 @@ const App = (props) => {
 
                     <Route
                         path="/login-page"
-                        render={(props) => <LoginPage {...props} />}
+                        render={(props) => <LoginPage setLoggedIn={setLoggedUserId} {...props} />}
                     />
                     <Route
-                        path="/index-loggedin"
-                        component={IndexLoggedIn}
+                        path="/dashboard"
+                        component={dashboard}
                     />
                     <Route
                         path="/register-page"

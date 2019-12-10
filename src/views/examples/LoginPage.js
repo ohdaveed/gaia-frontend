@@ -5,7 +5,8 @@ import * as Yup from "yup";
 // reactstrap components
 import { Button, Card, Form, Input, Container, Row, Col } from "reactstrap";
 
-const LoginPage = () => {
+const LoginPage = (props) => {
+
     document.documentElement.classList.remove("nav-open");
 
     React.useEffect(() => {
@@ -36,6 +37,10 @@ const LoginPage = () => {
 
             const parsedLoginResponse = await response.json();
             console.log(parsedLoginResponse);
+
+            if(response.ok) {
+                props.setLoggedIn(parsedLoginResponse._id)
+            } 
         }
     });
 
