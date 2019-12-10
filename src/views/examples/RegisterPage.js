@@ -40,7 +40,7 @@ const RegisterPage = () => {
                     "Content-Type": "application/json"
                 }
 			});
-			 const parsedLoginResponse = await response.json();
+			const parsedLoginResponse = await response.json();
 			console.log(parsedLoginResponse);
 		}
 	})
@@ -99,7 +99,7 @@ const RegisterPage = () => {
                                         type="submit"
                                         className="btn-round"
                                         color="danger"
-                                        href="/login-page"
+                                        
                                     >
                                         Register
                                     </Button>
