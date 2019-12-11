@@ -14,13 +14,13 @@ import {
 import SectionNavbars from "views/index-sections/SectionNavbars.js";
 
 
-export const IndexLoggedIn = (props) => {
+export const Dashboard = (props) => {
 	document.documentElement.classList.remove("nav-open");
 
 	React.useEffect(() => {
-		document.body.classList.add("index-loggedin");
+		document.body.classList.add("dashboard");
 		return function cleanup() {
-			document.body.classList.remove("index-loggedin");
+			document.body.classList.remove("dashboard");
 		};
 	});
 
@@ -46,4 +46,4 @@ export const IndexLoggedIn = (props) => {
 	);
 };
 
-export default IndexLoggedIn;
+export default Dashboard;
