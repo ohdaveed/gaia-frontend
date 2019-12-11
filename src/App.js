@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import {
     Route,
     Redirect,
-    Switch,
-    useHistory,
-    useLocation,
-    Link
+    Switch, Link
 } from "react-router-dom";
 
 // styles
@@ -18,48 +15,58 @@ import Index  from "views/examples/Index.js";
 import LandingPage from "views/examples/LandingPage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
 import LoginPage from "views/examples/LoginPage.js";
-import IndexLoggedIn from "views/examples/IndexLoggedIn.js";
+import Dashboard from "views/examples/Dashboard.js";
 import PhotoUpload from "views/examples/PhotoUpload.js";
 
 import IndexNavbar from  "components/Navbars/IndexNavbar.js"
 // others
 const App = (props) => {
-    const [loggedUserId, setLoggedUserId] = useState(null)
+    // eslint-disable-next-line
+    const [loggedUserId, setLoggedUserId] = useState(
+        null
+    );
 
-    return (<>
-                <IndexNavbar />
-                
-                <Switch>
-                    <Route
-                        path="/index"
-                        render={(props) => <Index {...props} />}
-                    />
+    const[loggedUserName, setLoggedUserName] = useState(null);
 
-                    <Route
-                        path="/landing-page"
-                        render={(props) => <LandingPage {...props} />}
-                    />
+    return (
+        <>
+            <IndexNavbar />
 
-                    <Route
-                        path="/login-page"
-                        render={(props) => <LoginPage setLoggedIn={setLoggedUserId} {...props} />}
-                    />
-                    <Route
-                        path="/dashboard"
-                        component={dashboard}
-                    />
-                    <Route
-                        path="/register-page"
-                        render={(props) => <RegisterPage {...props} />}
-                    />
-                    <Route
-                        path="/photo-upload"
-                        render={(props) => <PhotoUpload {...props} />}
-                    />
-                    <Redirect to="/index" />
-                </Switch>
-                </>
-        
+            <Switch>
+                <Route path="/index" render={(props) => <Index {...props} />} />
+
+                <Route
+                    path="/landing-page"
+                    render={(props) => <LandingPage {...props} />}
+                />
+
+                <Route
+                    path="/login-page"
+                    render={(props) => (
+                        <LoginPage
+                            setLoggedIn={setLoggedUserId}
+                            setLoggedUserName={setLoggedUserName}
+                            {...props}
+                        />
+                    )}
+                />
+                <Route
+                    path="/dashboard"
+                    render={(props) => (
+                        <Dashboard loggedUserName={loggedUserName} {...props} />
+                    )}
+                />
+                <Route
+                    path="/register-page"
+                    render={(props) => <RegisterPage {...props} />}
+                />
+                <Route
+                    path="/photo-upload"
+                    render={(props) => <PhotoUpload {...props} />}
+                />
+                <Redirect to="/index" />
+            </Switch>
+        </>
     );
 };
 

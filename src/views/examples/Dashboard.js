@@ -38,7 +38,7 @@ export const Dashboard = (props) => {
 						")"
 				}}>
 				<div className="section text-center">
-					<div>Logged in index</div>
+					<div>Welcome {props.loggedUserName}</div>
 					<Button>Log out</Button>
 				</div>
 			</div>

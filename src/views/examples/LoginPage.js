@@ -1,6 +1,5 @@
 import React from "react";
 import { useFormik } from "formik";
-import * as Yup from "yup";
 
 // reactstrap components
 import { Button, Card, Form, Input, Container, Row, Col } from "reactstrap";
@@ -40,6 +39,7 @@ const LoginPage = (props) => {
 
             if(response.ok) {
                 props.setLoggedIn(parsedLoginResponse._id)
+                props.setLoggedUserName(parsedLoginResponse.username)
             } 
         }
     });

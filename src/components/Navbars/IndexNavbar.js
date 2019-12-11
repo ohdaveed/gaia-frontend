@@ -74,21 +74,13 @@ const IndexNavbar = () => {
                     isOpen={navbarCollapse}
                 >
                     <Nav navbar>
-                        <NavItem>
-                            <NavLink
-                                href="https://demos.creative-tim.com/paper-kit-react/#/documentation?ref=pkr-index-navbar"
-                                target="_blank"
-                            >
-                                <i className="nc-icon nc-book-bookmark" />{" "}
-                                Product
-                            </NavLink>
-                        </NavItem>
+                        
                         <NavItem>
                             <Button
                                 className="btn-round"
                                 color="danger"
                                 href="/login-page"
-                                target="_blank"
+                                
                             >
                                 <i
                                     className="fa fa-leaf"
